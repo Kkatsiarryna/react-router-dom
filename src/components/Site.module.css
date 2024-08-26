@@ -45,3 +45,9 @@
     color: #7fb8f1;
     text-decoration: underline;
 }
+
+img {
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+}
