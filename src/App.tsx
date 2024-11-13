@@ -3,15 +3,16 @@ import {Navigate, NavLink, Outlet, Route, Routes} from 'react-router-dom';
 import styles from "./components/Site.module.css";
 import {s} from "./components/pages/_styles"
 import {Model} from "./components/pages/Model";
+import {PATH} from "./routes/Router";
 
 
-export const PATH = {
-    ADIDAS: "/adidas",
-    PUMA: "/puma",
-    ABIBAS: "/abibas",
-    ERROR: "/error404",
-    PRICES: "/prices"
-} as const
+// export const PATH = {
+//     ADIDAS: "/adidas",
+//     PUMA: "/puma",
+//     ABIBAS: "/abibas",
+//     ERROR: "/error404",
+//     PRICES: "/prices"
+// } as const
 
 function App() {
     return (
@@ -25,9 +26,10 @@ function App() {
                     <s.NavWrapper><NavLink to={PATH.PUMA}>Puma</NavLink></s.NavWrapper>
                     <s.NavWrapper><NavLink to={PATH.ABIBAS}>Abibas</NavLink></s.NavWrapper>
                     <s.NavWrapper><NavLink to={PATH.PRICES}>Цены для оптовиков</NavLink></s.NavWrapper>
+                    <s.NavWrapper><NavLink to={PATH.PROTECTEDPAGE}>Prodected page</NavLink></s.NavWrapper>
                 </s.Nav>
                 <s.Content>
-                    <Outlet />
+                    <Outlet/>
                     {/*<Routes>*/}
                     {/*    <Route path="/" element={<Navigate to={PATH.ADIDAS}/>}/>*/}
                     {/*    <Route path={PATH.ADIDAS} element={<Adidas/>}/>*/}
