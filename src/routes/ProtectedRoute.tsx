@@ -9,11 +9,9 @@ type Props = {
     
 };
 export const ProtectedRoute = ({children}: Props) => {
-    const logged = false
+    const isAuth = false
     return (
         <>
-            {logged ? children : <Navigate to={PATH.ERROR}/>}
+            {isAuth ? children : <Navigate to={PATH.LOGIN}/>}
         </>)
-
-
 };

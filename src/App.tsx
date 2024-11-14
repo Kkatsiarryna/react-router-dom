@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-import {Navigate, NavLink, Outlet, Route, Routes} from 'react-router-dom';
-import styles from "./components/Site.module.css";
+import React from 'react';
+import {Link, Navigate, NavLink, Outlet, useNavigate} from 'react-router-dom';
 import {s} from "./components/pages/_styles"
-import {Model} from "./components/pages/Model";
 import {PATH} from "./routes/Router";
+import styles from "../src/components/Site.module.css"
 
 
 // export const PATH = {
@@ -15,6 +14,11 @@ import {PATH} from "./routes/Router";
 // } as const
 
 function App() {
+    const navigate = useNavigate();
+    const navigateHandler = () => {
+        navigate(-1)
+    }
+
     return (
         <div>
             <s.Header><h1>HEADER</h1></s.Header>
@@ -29,6 +33,12 @@ function App() {
                     <s.NavWrapper><NavLink to={PATH.PROTECTEDPAGE}>Prodected page</NavLink></s.NavWrapper>
                 </s.Nav>
                 <s.Content>
+                    <div className={styles.HorizontalNavigation}>
+                        <Link to={PATH.ADIDAS} className={styles.LinkLikeButton}>Главная страница</Link>
+                        <button onClick={navigateHandler} className={styles.ButtonLikeLink}>Назад</button>
+
+                    </div>
+                    <Navigate to={PATH.ADIDAS}/>
                     <Outlet/>
                     {/*<Routes>*/}
                     {/*    <Route path="/" element={<Navigate to={PATH.ADIDAS}/>}/>*/}
